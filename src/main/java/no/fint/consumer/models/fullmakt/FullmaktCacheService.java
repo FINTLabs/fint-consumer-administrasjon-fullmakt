@@ -9,6 +9,7 @@ import no.fint.consumer.event.ConsumerEventUtil;
 import no.fint.event.model.Event;
 import no.fint.model.administrasjon.fullmakt.Fullmakt;
 import no.fint.model.administrasjon.fullmakt.FullmaktActions;
+import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import no.fint.model.relation.FintResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -62,6 +63,7 @@ public class FullmaktCacheService extends CacheService<FintResource<Fullmakt>> {
                 .ofNullable(fintResource)
                 .map(FintResource::getResource)
                 .map(Fullmakt::getSystemId)
+                .map(Identifikator::getIdentifikatorverdi)
                 .map(id -> id.equals(systemId))
                 .orElse(false));
     }
