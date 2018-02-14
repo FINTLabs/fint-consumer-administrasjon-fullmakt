@@ -7,8 +7,9 @@ import no.fint.consumer.config.Constants;
 import no.fint.consumer.config.ConsumerProps;
 import no.fint.consumer.event.ConsumerEventUtil;
 import no.fint.event.model.Event;
+import no.fint.model.administrasjon.fullmakt.Fullmakt;
+import no.fint.model.administrasjon.fullmakt.FullmaktActions;
 import no.fint.model.relation.FintResource;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -17,9 +18,6 @@ import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-
-import no.fint.model.administrasjon.fullmakt.Fullmakt;
-import no.fint.model.administrasjon.fullmakt.FullmaktActions;
 
 @Slf4j
 @Service
@@ -60,9 +58,12 @@ public class FullmaktCacheService extends CacheService<FintResource<Fullmakt>> {
 
 
     public Optional<FintResource<Fullmakt>> getFullmaktBySystemId(String orgId, String systemId) {
-        Identifikator needle = new Identifikator();
-        needle.setIdentifikatorverdi(systemId);
-        return getOne(orgId, (fintResource) -> needle.equals(fintResource.getResource().getSystemId()));
+        return getOne(orgId, (fintResource) -> Optional
+                .ofNullable(fintResource)
+                .map(FintResource::getResource)
+                .map(Fullmakt::getSystemId)
+                .map(id -> id.equals(systemId))
+                .orElse(false));
     }
 
 
