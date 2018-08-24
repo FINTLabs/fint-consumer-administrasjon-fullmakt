@@ -1,6 +1,7 @@
 package no.fint.consumer.models.rolle;
 
 import com.google.common.collect.ImmutableMap;
+import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import no.fint.audit.FintAuditService;
 import no.fint.consumer.config.Constants;
@@ -26,8 +27,9 @@ import no.fint.model.administrasjon.fullmakt.FullmaktActions;
 
 @Slf4j
 @CrossOrigin
+@Api(tags = {"Rolle"})
 @RestController
-@RequestMapping(value = RestEndpoints.ROLLE, produces = {FintRelationsMediaType.APPLICATION_HAL_JSON_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
+@RequestMapping(name = "Rolle", value = RestEndpoints.ROLLE, produces = {FintRelationsMediaType.APPLICATION_HAL_JSON_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
 public class RolleController {
 
     @Autowired
