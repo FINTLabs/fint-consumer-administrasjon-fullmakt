@@ -42,7 +42,6 @@ import no.fint.model.administrasjon.fullmakt.FullmaktActions;
 @Slf4j
 @Api(tags = {"Fullmakt"})
 @CrossOrigin
-@Api(tags = {"Fullmakt"})
 @RestController
 @RequestMapping(name = "Fullmakt", value = RestEndpoints.FULLMAKT, produces = {FintRelationsMediaType.APPLICATION_HAL_JSON_VALUE, MediaType.APPLICATION_JSON_UTF8_VALUE})
 public class FullmaktController {
