@@ -1,3 +1,7 @@
+spring:
+ application:
+  name: fint-consumer-fullmakt
+
 fint:
  events:
   orgIds: mock.no
@@ -15,4 +19,5 @@ fint:
   members: localhost
 
 server:
- context-path: /
+ context-path: ""
+ port: 8080
