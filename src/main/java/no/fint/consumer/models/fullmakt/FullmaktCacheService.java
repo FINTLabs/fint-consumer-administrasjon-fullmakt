@@ -75,7 +75,8 @@ public class FullmaktCacheService extends CacheService<FullmaktResource> {
 		populateCache(orgId);
 	}
 
-    private void populateCache(String orgId) {
+    @Override
+    public void populateCache(String orgId) {
 		log.info("Populating Fullmakt cache for {}", orgId);
         Event event = new Event(orgId, Constants.COMPONENT, FullmaktActions.GET_ALL_FULLMAKT, Constants.CACHE_SERVICE);
         consumerEventUtil.send(event);

@@ -1,7 +1,3 @@
-spring:
-  application:
-    name: fint-consumer-fullmakt
-
 springfox:
   title: '@title@'
   version: '@version@'

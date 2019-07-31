@@ -75,7 +75,8 @@ public class RolleCacheService extends CacheService<RolleResource> {
 		populateCache(orgId);
 	}
 
-    private void populateCache(String orgId) {
+    @Override
+    public void populateCache(String orgId) {
 		log.info("Populating Rolle cache for {}", orgId);
         Event event = new Event(orgId, Constants.COMPONENT, FullmaktActions.GET_ALL_ROLLE, Constants.CACHE_SERVICE);
         consumerEventUtil.send(event);
