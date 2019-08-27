@@ -63,7 +63,7 @@ spec:
           initialDelaySeconds: 60
           timeoutSeconds: 5
         resources:
-          limits: {memory: 12Gi, cpu: '2'}
+          limits: {memory: 12Gi, cpu: '4'}
           requests: {memory: 10Gi, cpu: 250m}
       restartPolicy: Always
 ---
@@ -108,6 +108,6 @@ spec:
           initialDelaySeconds: 60
           timeoutSeconds: 5
         resources:
-          limits: {memory: 12Gi, cpu: '2'}
+          limits: {memory: 12Gi, cpu: '4'}
           requests: {memory: 10Gi, cpu: 250m}
       restartPolicy: Always
