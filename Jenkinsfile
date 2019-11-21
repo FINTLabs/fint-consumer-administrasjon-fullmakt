@@ -14,9 +14,18 @@ pipeline {
                 branch 'master'
             }
             steps {
-                sh "docker tag ${GIT_COMMIT} fintlabs.azurecr.io/consumer-fullmakt:build.${BUILD_NUMBER}"
+                sh "docker tag ${GIT_COMMIT} fintlabs.azurecr.io/consumer-administrasjon-fullmakt:build.${BUILD_NUMBER}"
                 withDockerRegistry([credentialsId: 'fintlabs.azurecr.io', url: 'https://fintlabs.azurecr.io']) {
-                    sh "docker push fintlabs.azurecr.io/consumer-fullmakt:build.${BUILD_NUMBER}"
+                    sh "docker push fintlabs.azurecr.io/consumer-administrasjon-fullmakt:build.${BUILD_NUMBER}"
+                }
+            }
+        }
+        stage('Publish PR') {
+            when { changeRequest() }
+            steps {
+                sh "docker tag ${GIT_COMMIT} fintlabs.azurecr.io/consumer-administrasjon-fullmakt:${BRANCH_NAME}.${BUILD_NUMBER}"
+                withDockerRegistry([credentialsId: 'fintlabs.azurecr.io', url: 'https://fintlabs.azurecr.io']) {
+                    sh "docker push fintlabs.azurecr.io/consumer-administrasjon-fullmakt:${BRANCH_NAME}.${BUILD_NUMBER}"
                 }
             }
         }
@@ -28,18 +37,9 @@ pipeline {
                 script {
                     VERSION = TAG_NAME[1..-1]
                 }
-                sh "docker tag ${GIT_COMMIT} fintlabs.azurecr.io/consumer-fullmakt:${VERSION}"
+                sh "docker tag ${GIT_COMMIT} fintlabs.azurecr.io/consumer-administrasjon-fullmakt:${VERSION}"
                 withDockerRegistry([credentialsId: 'fintlabs.azurecr.io', url: 'https://fintlabs.azurecr.io']) {
-                    sh "docker push fintlabs.azurecr.io/consumer-fullmakt:${VERSION}"
-                }
-            }
-        }
-        stage('Publish PR') {
-            when { changeRequest() }
-            steps {
-                sh "docker tag ${GIT_COMMIT} fintlabs.azurecr.io/consumer-fullmakt:${BRANCH_NAME}.${BUILD_NUMBER}"
-                withDockerRegistry([credentialsId: 'fintlabs.azurecr.io', url: 'https://fintlabs.azurecr.io']) {
-                    sh "docker push fintlabs.azurecr.io/consumer-fullmakt:${BRANCH_NAME}.${BUILD_NUMBER}"
+                    sh "docker push fintlabs.azurecr.io/consumer-administrasjon-fullmakt:${VERSION}"
                 }
             }
         }
