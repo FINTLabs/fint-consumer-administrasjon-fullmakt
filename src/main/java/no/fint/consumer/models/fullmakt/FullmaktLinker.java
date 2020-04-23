@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static java.util.Objects.isNull;
 import static org.springframework.util.StringUtils.isEmpty;
-
 
 @Component
 public class FullmaktLinker extends FintLinker<FullmaktResource> {
@@ -34,11 +34,17 @@ public class FullmaktLinker extends FintLinker<FullmaktResource> {
 
     @Override
     public String getSelfHref(FullmaktResource fullmakt) {
+        return getAllSelfHrefs(fullmakt).findFirst().orElse(null);
+    }
+
+    @Override
+    public Stream<String> getAllSelfHrefs(FullmaktResource fullmakt) {
+        Stream.Builder<String> builder = Stream.builder();
         if (!isNull(fullmakt.getSystemId()) && !isEmpty(fullmakt.getSystemId().getIdentifikatorverdi())) {
-            return createHrefWithId(fullmakt.getSystemId().getIdentifikatorverdi(), "systemid");
+            builder.add(createHrefWithId(fullmakt.getSystemId().getIdentifikatorverdi(), "systemid"));
         }
         
-        return null;
+        return builder.build();
     }
 
     int[] hashCodes(FullmaktResource fullmakt) {
