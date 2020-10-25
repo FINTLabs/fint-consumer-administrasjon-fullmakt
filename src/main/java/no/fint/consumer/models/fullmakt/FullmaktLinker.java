@@ -1,6 +1,5 @@
 package no.fint.consumer.models.fullmakt;
 
-import no.fint.model.resource.Link;
 import no.fint.model.resource.administrasjon.fullmakt.FullmaktResource;
 import no.fint.model.resource.administrasjon.fullmakt.FullmaktResources;
 import no.fint.relations.FintLinker;
@@ -26,9 +25,14 @@ public class FullmaktLinker extends FintLinker<FullmaktResource> {
 
     @Override
     public FullmaktResources toResources(Collection<FullmaktResource> collection) {
+        return toResources(collection.stream(), 0, 0, collection.size());
+    }
+
+    @Override
+    public FullmaktResources toResources(Stream<FullmaktResource> stream, int offset, int size, int totalItems) {
         FullmaktResources resources = new FullmaktResources();
-        collection.stream().map(this::toResource).forEach(resources::addResource);
-        resources.addSelf(Link.with(self()));
+        stream.map(this::toResource).forEach(resources::addResource);
+        addPagination(resources, offset, size, totalItems);
         return resources;
     }
 
