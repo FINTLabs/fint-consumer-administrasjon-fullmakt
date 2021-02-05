@@ -3,8 +3,8 @@ package no.fint.consumer.config;
 import no.fint.consumer.utils.RestEndpoints;
 import java.util.Map;
 import com.google.common.collect.ImmutableMap;
-
-import no.fint.model.administrasjon.fullmakt.*;
+import no.fint.model.administrasjon.fullmakt.Fullmakt;
+import no.fint.model.administrasjon.fullmakt.Rolle;
 
 public class LinkMapper {
 
