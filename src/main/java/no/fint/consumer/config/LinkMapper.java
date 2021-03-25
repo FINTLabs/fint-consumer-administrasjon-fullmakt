@@ -1,37 +1,32 @@
 package no.fint.consumer.config;
 
-import com.google.common.collect.ImmutableMap;
 import no.fint.consumer.utils.RestEndpoints;
+import java.util.Map;
+import com.google.common.collect.ImmutableMap;
 import no.fint.model.administrasjon.fullmakt.Fullmakt;
 import no.fint.model.administrasjon.fullmakt.Rolle;
-import no.fint.model.administrasjon.kodeverk.*;
-import no.fint.model.administrasjon.organisasjon.Organisasjonselement;
-import no.fint.model.administrasjon.personal.Personalressurs;
-
-import java.util.Map;
 
 public class LinkMapper {
 
     public static Map<String, String> linkMapper(String contextPath) {
-        return ImmutableMap.<String, String>builder()
-                .put(Fullmakt.class.getName(), contextPath + RestEndpoints.FULLMAKT)
-                .put(Rolle.class.getName(), contextPath + RestEndpoints.ROLLE)
-
-                .put(Aktivitet.class.getName(), "/administrasjon/kodeverk/aktivitet")
-                .put(Anlegg.class.getName(), "/administrasjon/kodeverk/anlegg")
-                .put(Ansvar.class.getName(), "/administrasjon/kodeverk/ansvar")
-                .put(Art.class.getName(), "/administrasjon/kodeverk/art")
-                .put(Diverse.class.getName(), "/administrasjon/kodeverk/diverse")
-                .put(Funksjon.class.getName(), "/administrasjon/kodeverk/funksjon")
-                .put(Kontrakt.class.getName(), "/administrasjon/kodeverk/kontrakt")
-                .put(Lopenummer.class.getName(), "/administrasjon/kodeverk/lopenummer")
-                .put(Objekt.class.getName(), "/administrasjon/kodeverk/objekt")
-                .put(Prosjekt.class.getName(), "/administrasjon/kodeverk/prosjekt")
-                .put(Ramme.class.getName(), "/administrasjon/kodeverk/ramme")
-
-                .put(Personalressurs.class.getName(), "/administrasjon/personal/personalressurs")
-                .put(Organisasjonselement.class.getName(), "/administrasjon/organisasjon/organisasjonselement")
-                .build();
+        return ImmutableMap.<String,String>builder()
+            .put(Fullmakt.class.getName(), contextPath + RestEndpoints.FULLMAKT)
+            .put(Rolle.class.getName(), contextPath + RestEndpoints.ROLLE)
+            .put("no.fint.model.administrasjon.kodeverk.Ramme", "/administrasjon/kodeverk/ramme")
+            .put("no.fint.model.administrasjon.kodeverk.Funksjon", "/administrasjon/kodeverk/funksjon")
+            .put("no.fint.model.administrasjon.kodeverk.Objekt", "/administrasjon/kodeverk/objekt")
+            .put("no.fint.model.administrasjon.organisasjon.Organisasjonselement", "/administrasjon/organisasjon/organisasjonselement")
+            .put("no.fint.model.administrasjon.kodeverk.Art", "/administrasjon/kodeverk/art")
+            .put("no.fint.model.administrasjon.kodeverk.Anlegg", "/administrasjon/kodeverk/anlegg")
+            .put("no.fint.model.administrasjon.kodeverk.Diverse", "/administrasjon/kodeverk/diverse")
+            .put("no.fint.model.administrasjon.kodeverk.Aktivitet", "/administrasjon/kodeverk/aktivitet")
+            .put("no.fint.model.administrasjon.kodeverk.Ansvar", "/administrasjon/kodeverk/ansvar")
+            .put("no.fint.model.administrasjon.personal.Personalressurs", "/administrasjon/personal/personalressurs")
+            .put("no.fint.model.administrasjon.kodeverk.Kontrakt", "/administrasjon/kodeverk/kontrakt")
+            .put("no.fint.model.administrasjon.kodeverk.Prosjekt", "/administrasjon/kodeverk/prosjekt")
+            .put("no.fint.model.administrasjon.kodeverk.Lopenummer", "/administrasjon/kodeverk/lopenummer")
+            /* .put(TODO,TODO) */
+            .build();
     }
 
 }
