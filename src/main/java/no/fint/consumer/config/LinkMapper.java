@@ -24,6 +24,7 @@ public class LinkMapper {
             .put("no.fint.model.administrasjon.personal.Personalressurs", "/administrasjon/personal/personalressurs")
             .put("no.fint.model.administrasjon.kodeverk.Kontrakt", "/administrasjon/kodeverk/kontrakt")
             .put("no.fint.model.administrasjon.kodeverk.Prosjekt", "/administrasjon/kodeverk/prosjekt")
+            .put("no.fint.model.administrasjon.kodeverk.Formal", "/administrasjon/kodeverk/formal")
             .put("no.fint.model.administrasjon.kodeverk.Lopenummer", "/administrasjon/kodeverk/lopenummer")
             /* .put(TODO,TODO) */
             .build();
