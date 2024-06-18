@@ -182,7 +182,7 @@ public class FullmaktController {
 
             fintAuditService.audit(response, Status.SENT_TO_CLIENT);
 
-            return linker.toResource(fullmakt);
+            return linker.mapAndResetLinks(fullmakt);
         }    
     }
 
