@@ -182,7 +182,7 @@ public class RolleController {
 
             fintAuditService.audit(response, Status.SENT_TO_CLIENT);
 
-            return linker.toResource(rolle);
+            return linker.mapAndResetLinks(rolle);
         }    
     }
 
