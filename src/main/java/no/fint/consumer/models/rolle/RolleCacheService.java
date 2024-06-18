@@ -107,10 +107,7 @@ public class RolleCacheService extends CacheService<RolleResource> {
         } else {
             data = objectMapper.convertValue(event.getData(), javaType);
         }
-        data.forEach(resource -> {
-            linker.mapLinks(resource);
-            linker.resetSelfLinks(resource);
-        });
+        data.forEach(linker::mapLinks);
         if (FullmaktActions.valueOf(event.getAction()) == FullmaktActions.UPDATE_ROLLE) {
             if (event.getResponseStatus() == ResponseStatus.ACCEPTED || event.getResponseStatus() == ResponseStatus.CONFLICT) {
                 List<CacheObject<RolleResource>> cacheObjects = data
