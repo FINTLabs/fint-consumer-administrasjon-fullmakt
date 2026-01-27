@@ -53,7 +53,6 @@ dependencies {
     compile("org.projectlombok:lombok:${lombokVersion}")
     compile("com.github.springfox.loader:springfox-loader:${springfoxLoaderVersion}")
 
-    compile("commons-io:commons-io:2.19.0")
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-actuator')
     
