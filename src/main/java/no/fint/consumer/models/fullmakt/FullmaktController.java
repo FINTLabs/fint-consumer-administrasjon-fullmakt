@@ -43,9 +43,9 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
-import no.fint.model.resource.administrasjon.fullmakt.FullmaktResource;
-import no.fint.model.resource.administrasjon.fullmakt.FullmaktResources;
-import no.fint.model.administrasjon.fullmakt.FullmaktActions;
+import no.novari.fint.model.resource.administrasjon.fullmakt.FullmaktResource;
+import no.novari.fint.model.resource.administrasjon.fullmakt.FullmaktResources;
+import no.novari.fint.model.administrasjon.fullmakt.FullmaktActions;
 
 @Slf4j
 @Api(tags = {"Fullmakt"})

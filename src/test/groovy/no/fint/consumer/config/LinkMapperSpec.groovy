@@ -1,13 +1,13 @@
 package no.fint.consumer.config
 
-import no.fint.model.administrasjon.fullmakt.Fullmakt
-import no.fint.model.administrasjon.fullmakt.Rolle
-import no.fint.model.administrasjon.kodeverk.Ansvar
-import no.fint.model.administrasjon.kodeverk.Art
-import no.fint.model.administrasjon.kodeverk.Funksjon
-import no.fint.model.administrasjon.kodeverk.Prosjekt
-import no.fint.model.administrasjon.organisasjon.Organisasjonselement
-import no.fint.model.administrasjon.personal.Personalressurs
+import no.novari.fint.model.administrasjon.fullmakt.Fullmakt
+import no.novari.fint.model.administrasjon.fullmakt.Rolle
+import no.novari.fint.model.administrasjon.kodeverk.Ansvar
+import no.novari.fint.model.administrasjon.kodeverk.Art
+import no.novari.fint.model.administrasjon.kodeverk.Funksjon
+import no.novari.fint.model.administrasjon.kodeverk.Prosjekt
+import no.novari.fint.model.administrasjon.organisasjon.Organisasjonselement
+import no.novari.fint.model.administrasjon.personal.Personalressurs
 import spock.lang.Specification
 
 class LinkMapperSpec extends Specification {

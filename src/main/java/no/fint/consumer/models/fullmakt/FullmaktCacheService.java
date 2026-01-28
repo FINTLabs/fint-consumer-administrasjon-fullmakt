@@ -26,10 +26,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import no.fint.model.administrasjon.fullmakt.Fullmakt;
-import no.fint.model.resource.administrasjon.fullmakt.FullmaktResource;
-import no.fint.model.administrasjon.fullmakt.FullmaktActions;
-import no.fint.model.felles.kompleksedatatyper.Identifikator;
+import no.novari.fint.model.administrasjon.fullmakt.Fullmakt;
+import no.novari.fint.model.resource.administrasjon.fullmakt.FullmaktResource;
+import no.novari.fint.model.administrasjon.fullmakt.FullmaktActions;
+import no.novari.fint.model.felles.kompleksedatatyper.Identifikator;
 
 @Slf4j
 @Service

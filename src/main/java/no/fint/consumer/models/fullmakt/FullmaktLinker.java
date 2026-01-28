@@ -1,7 +1,7 @@
 package no.fint.consumer.models.fullmakt;
 
-import no.fint.model.resource.administrasjon.fullmakt.FullmaktResource;
-import no.fint.model.resource.administrasjon.fullmakt.FullmaktResources;
+import no.novari.fint.model.resource.administrasjon.fullmakt.FullmaktResource;
+import no.novari.fint.model.resource.administrasjon.fullmakt.FullmaktResources;
 import no.fint.relations.FintLinker;
 import org.springframework.stereotype.Component;
 
